@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "9127bcec-2538-4255-a148-759b6a0a4e4d",
+		"name": "Socio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9098318"
+	},
+	"item": [
+		{
+			"name": "Crear un socio válido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"iv.barbosa@uniandes.edu.co\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un socio válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"iv.barbosa@uniandes.edu.co\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"iv.barbosa@uniandes.edu.co\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear un socio no válido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"iv.barbosauniandes.edu.co\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear un socio no válido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"iv.barbosauniandes.edu.co\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 400,\r\n   \"message\": \"Invalid email\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los socios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/members",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los socios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/members",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"nombreUsuario\": \"john_doe\",\r\n    \"correo\": \"john@example.com\",\r\n    \"fechaNacimiento\": \"1990-01-01T00:00:00.000Z\",\r\n    \"clubs\": [\r\n      {\r\n        \"nombre\": \"Aero Club\",\r\n        \"fechaFundacion\": \"1985-05-15T00:00:00.000Z\",\r\n        \"imagen\": \"https://example.com/images/aero_club.jpg\",\r\n        \"descripcion\": \"A club for aerial enthusiasts.\"\r\n      },\r\n      {\r\n        \"nombre\": \"Tech Innovators Club\",\r\n        \"fechaFundacion\": \"2000-03-30T00:00:00.000Z\",\r\n        \"imagen\": \"https://example.com/images/tech_innovators_club.jpg\",\r\n        \"descripcion\": \"A club for technology innovators and enthusiasts.\"\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"nombreUsuario\": \"jane_smith\",\r\n    \"correo\": \"jane@example.com\",\r\n    \"fechaNacimiento\": \"1985-07-20T00:00:00.000Z\",\r\n    \"clubs\": [\r\n      {\r\n        \"nombre\": \"Aero Club\",\r\n        \"fechaFundacion\": \"1985-05-15T00:00:00.000Z\",\r\n        \"imagen\": \"https://example.com/images/aero_club.jpg\",\r\n        \"descripcion\": \"A club for aerial enthusiasts.\"\r\n      }\r\n    ]\r\n  }\r\n]\r\n"
+				}
+			]
+		},
+		{
+			"name": "Obtener un socio por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members/{{member_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"{{member_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un socio por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/members/{{member_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"nombreUsuario\": \"john_doe\",\r\n    \"correo\": \"john@example.com\",\r\n    \"fechaNacimiento\": \"1990-01-01T00:00:00.000Z\",\r\n    \"clubs\": [\r\n      {\r\n        \"nombre\": \"Aero Club\",\r\n        \"fechaFundacion\": \"1985-05-15T00:00:00.000Z\",\r\n        \"imagen\": \"https://example.com/images/aero_club.jpg\",\r\n        \"descripcion\": \"A club for aerial enthusiasts.\"\r\n      },\r\n      {\r\n        \"nombre\": \"Tech Innovators Club\",\r\n        \"fechaFundacion\": \"2000-03-30T00:00:00.000Z\",\r\n        \"imagen\": \"https://example.com/images/tech_innovators_club.jpg\",\r\n        \"descripcion\": \"A club for technology innovators and enthusiasts.\"\r\n      }\r\n    ]\r\n  }"
+				}
+			]
+		},
+		{
+			"name": "Obtener un socio por un ID que no existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un socio por un ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The socio with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un socio",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"ing-vane@hotmail.com\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members/{{member_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"{{member_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un socio",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"ing-vane@hotmail.com\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/members/{{member_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"ing-vane@hotmail.com\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un socio con un ID que no existe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"ing-vane@hotmail.com\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un socio con un ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"nombreUsuario\": \"Ingrith Barbosa\",\r\n   \"correo\": \"ing-vane@hotmail.com\",\r\n   \"fechaNacimiento\": \"1999-02-02T14:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The socio with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un socio por su ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/members/{{member_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"{{member_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un socio por su ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/members/{{member_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un socio por un ID que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"members",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un socio por un ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/members/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The socio with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	]
+}

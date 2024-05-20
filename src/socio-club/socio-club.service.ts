@@ -21,7 +21,7 @@ export class SocioClubService {
         if (!socio)
           throw new BusinessLogicException("The socio with the given id was not found", BusinessError.NOT_FOUND);
        
-        const club: ClubEntity = await this.clubRepository.findOne({where: {id: clubId}, relations: ["socios", "exhibitions"]}) 
+        const club: ClubEntity = await this.clubRepository.findOne({where: {id: clubId}, relations: ["socios"]}) 
         if (!club)
           throw new BusinessLogicException("The club with the given id was not found", BusinessError.NOT_FOUND);
      
@@ -54,7 +54,7 @@ export class SocioClubService {
         return clubSocio;
     }
      
-    async associateSociosClub(clubId: string, socios: SocioEntity[]): Promise<ClubEntity> {
+    async updateSociosClub(clubId: string, socios: SocioEntity[]): Promise<ClubEntity> {
         const club: ClubEntity = await this.clubRepository.findOne({where: {id: clubId}, relations: ["socios"]});
      
         if (!club)
